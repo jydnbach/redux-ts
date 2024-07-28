@@ -4,7 +4,7 @@ interface RepositoriesState {
   data: string[];
 }
 
-const reducer = (state: RepositoriesState, action: any) => {
+const reducer = (state: RepositoriesState, action: any): RepositoriesState => {
   switch (action.type) {
     case 'search_repositores':
       return { loading: true, error: null, data: [] };
@@ -13,7 +13,7 @@ const reducer = (state: RepositoriesState, action: any) => {
     case 'search_repositories_error':
       return { loading: false, error: action.payload, data: [] };
     default:
-      return;
+      return state;
   }
 };
 
